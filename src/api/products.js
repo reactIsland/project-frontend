@@ -4,66 +4,13 @@ import axios from 'axios'
 // INDEX Products
 export const indexProducts = (user) => {
   return axios.get(apiUrl + '/products/',
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    {
+      headers: {
+        Authorization: `Bearer ${user.token}`
+      }
+    }
+  )
+}
 
 // create
 
@@ -99,6 +46,7 @@ export const deleteProduct = (id, user) => {
       Authorization: `Bearer ${user.token}`
     }
   })
+}
 // show by ID
 export const showProduct = (id, user) => {
   return axios.get(
