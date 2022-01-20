@@ -4,6 +4,67 @@ import axios from 'axios'
 // INDEX Products
 export const indexProducts = (user) => {
   return axios.get(apiUrl + '/products/',
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // create
 
 export const createProduct = (user, name, description, price, category) => {
