@@ -2,7 +2,6 @@ import apiUrl from '../apiConfig'
 import axios from 'axios'
 
 // create
-
 export const createProduct = (user, name, description, price, category) => {
   return axios.post(
     `${apiUrl}/products`,
