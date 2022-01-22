@@ -13,7 +13,7 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 
 // Component Routes
-import Home from './components/'
+import Home from './components/routes/Home'
 
 class App extends Component {
   constructor (props) {
@@ -90,6 +90,8 @@ class App extends Component {
               <ChangePassword msgAlert={this.msgAlert} user={user} />
             )}
           />
+          {/* Component Routes */}
+          <Route path='/' element={<Home />} />
         </main>
       </Fragment>
     )
