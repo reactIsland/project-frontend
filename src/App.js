@@ -11,6 +11,7 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+import { Cart } from './components/Cart/Cart'
 
 // Component Routes
 import Home from './components/routes/Home'
@@ -60,6 +61,10 @@ class App extends Component {
           />
         ))}
 	      <main className='container'>
+          <Route path='/'render={() => (
+            <Home />
+          )}
+          />
 	        <Route
             path='/sign-up'
             render={() => (
@@ -90,8 +95,17 @@ class App extends Component {
               <ChangePassword msgAlert={this.msgAlert} user={user} />
             )}
           />
+          <AuthenticatedRoute
+            user={user}
+            path='/cart'
+            render={() => (
+              <Cart
+                // msgAlert={this.msgAlert}
+                user={user}
+              />
+            )}
+          />
           {/* Component Routes */}
-          <Route path='/' element={<Home />} />
         </main>
       </Fragment>
     )
