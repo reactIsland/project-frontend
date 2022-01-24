@@ -1,14 +1,23 @@
 import React from 'react'
+import styled from 'styled-components'
 
-const CartItem = ({ name, price, description, category, id }) => {
+const Div = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+  height: fit-content;
+  align-items: center;
+  text-align: center;
+  justify-items: center;
+`
+
+const CartItem = ({ name, price, id }) => {
   return (
-    <div>
-      <p>Name: {name}</p>
-      <p>Price: {price}</p>
-      <p>Description: {description}</p>
-      <p>Category: {category}</p>
-      <p>productID: {id}</p>
-    </div>
+    <Div>
+      <h6>{name}</h6>
+      <h6>Quantity: 1</h6>
+      <h6>${price}</h6>
+    </Div>
   )
 }
 
