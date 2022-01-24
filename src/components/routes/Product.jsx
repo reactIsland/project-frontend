@@ -1,13 +1,18 @@
 import React from 'react'
 
-const Product = () => {
+const Product = ({ name, description, category, price, id }) => {
+  const addToCart = (id) => {
+    console.log('Click')
+  }
+  return (
     <>
-      <p>produt name</p>
-      <p>product description</p>
-      <p>product category</p>
-      <p>product price</p>
-      <button>Add to cart</button>
+      <p> {name} </p>
+      <p>Description: { description} </p>
+      <p>Category: {category} </p>
+      <p>{price} </p>
+      <button onClick={addToCart}>Add to cart</button>
     </>
+  )
 }
 
 export default Product
