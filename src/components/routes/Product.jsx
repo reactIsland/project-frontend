@@ -28,7 +28,7 @@ const ProductButton = styled.button`
 //   border: none;
 // `
 
-const Product = ({ name, description, category, price, id, user }) => {
+const Product = ({ name, description, category, price, id, user, msgAlert }) => {
   const addToCart = (id) => {
     console.log(id)
     const { token } = user
@@ -44,6 +44,13 @@ const Product = ({ name, description, category, price, id, user }) => {
       .then(response => {
         console.log(response)
       })
+      .then(() =>
+        msgAlert({
+          heading: '🎊  item added  🎉',
+          message: '',
+          variant: 'success'
+        })
+      )
   }
 
   const linkStyle = {

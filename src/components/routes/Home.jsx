@@ -4,19 +4,29 @@ import apiUrl from '../../apiConfig'
 import axios from 'axios'
 import styled from 'styled-components'
 
+const ViewContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  padding-right: 50px;
+  padding-left: 50px;
+  margin: 0 auto;
+`
+
 const ProductsContainer = styled.div`
   display: flex;
   height: auto;
+  width: 75%;
   flex-wrap: wrap; 
   align-items: center;
   justify-content: center;
   padding: 15px;
+  margin: 0 auto;
 `
 const ProductCard = styled.div`
   margin: 10px;
   background-color: white;
-  height: 150px;
-  width: 150px;
+  height: 200px;
+  width: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,16 +67,17 @@ export const Home = ({ msgAlert, user }) => {
         price = {product.price}
         id = {product._id}
         user={user}
+        msgAlert={msgAlert}
       />
     </ProductCard>
   ))
   return (
-    <>
+    <ViewContainer>
       <H1>Products</H1>
       <ProductsContainer>
         {productsList}
       </ProductsContainer>
-    </>
+    </ViewContainer>
   )
 }
 

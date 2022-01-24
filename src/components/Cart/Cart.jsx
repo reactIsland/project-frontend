@@ -3,6 +3,15 @@ import React, { useState, useEffect } from 'react'
 import apiUrl from '../../apiConfig'
 import CartItem from './CartItem'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+
+const ViewContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  padding-right: 50px;
+  padding-left: 50px;
+  margin: 0 auto;
+`
 
 const Button = styled.button`
 outline: none;
@@ -139,8 +148,17 @@ export const Cart = ({ user }) => {
     </Div>
   ))
 
+  const linkStyle = {
+    padding: '10px',
+    'background-color': 'black',
+    color: 'white',
+    border: 'none',
+    outline: 'none',
+    'text-decoration': 'none'
+  }
+
   return (
-    <>
+    <ViewContainer>
       <H1>Shopping Cart</H1>
       <Container>
         <CartSection>
@@ -159,10 +177,10 @@ export const Cart = ({ user }) => {
           </SubtotalDiv>
         </SubtotalSection>
         <CheckoutSection>
-          <CartButton>Continue Shopping</CartButton>
+          <Link style={linkStyle} to='/Home'>Continue Shopping</Link>
           <CartButton>Checkout</CartButton>
         </CheckoutSection>
       </Container>
-    </>
+    </ViewContainer>
   )
 }

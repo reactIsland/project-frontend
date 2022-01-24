@@ -12,6 +12,7 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import { Cart } from './components/Cart/Cart'
+import ProfileView from './components/Profile/ProfileView'
 
 // Component Routes
 import Home from './components/routes/Home'
@@ -60,7 +61,7 @@ class App extends Component {
             deleteAlert={this.deleteAlert}
           />
         ))}
-	      <main className='container'>
+	      <main>
           <Route path='/Home'render={() => (
             <Home
               user={user}
@@ -96,6 +97,13 @@ class App extends Component {
             path='/change-password'
             render={() => (
               <ChangePassword msgAlert={this.msgAlert} user={user} />
+            )}
+          />
+          <AuthenticatedRoute
+            user={user}
+            path='/profile'
+            render={() => (
+              <ProfileView msgAlert={this.msgAlert} user={user} />
             )}
           />
           <AuthenticatedRoute
