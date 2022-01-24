@@ -1,15 +1,6 @@
 import React from 'react'
-import axios from 'axios'
-import apiUrl from '../../apiConfig'
 
-const CartItem = ({ user, name, price, description, category, id }) => {
-  const removeFromCart = (productId) => {
-    axios.delete(apiUrl + `/cart/${productId}`, {
-      headers: {
-        Authorization: `Bearer ${user.token}`
-      }
-    })
-  }
+const CartItem = ({ name, price, description, category, id }) => {
   return (
     <div>
       <p>Name: {name}</p>
@@ -17,7 +8,6 @@ const CartItem = ({ user, name, price, description, category, id }) => {
       <p>Description: {description}</p>
       <p>Category: {category}</p>
       <p>productID: {id}</p>
-      <button onClick={removeFromCart(id)}>Remove from cart</button>
     </div>
   )
 }
