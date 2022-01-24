@@ -20,7 +20,7 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
   <Fragment>
-    <NavLink exact to='/Home' className='nav-link'>Home</NavLink>
+    <NavLink to='/Home' className='nav-link' exact>Home</NavLink>
   </Fragment>
 )
 

@@ -1,17 +1,36 @@
 import React, { useEffect, useState } from 'react'
 import Product from './Product'
-import { Link } from 'react-router-dom'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
-// use useeffect to call api to get all products
-// create state products, setProducts
-// once you have all products put into products state
-// map all products with Product component, pass in necessary props
+import styled from 'styled-components'
 
-// const products = ({ name, description, price, category }) => {
-//   const ProductJsx = Product.map([])
-//   }
-export const Home = (msgAlert) => {
+const ProductsContainer = styled.div`
+  display: flex;
+  height: auto;
+  flex-wrap: wrap; 
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+`
+const ProductCard = styled.div`
+  margin: 10px;
+  background-color: white;
+  height: 150px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+`
+
+const H1 = styled.h1`
+  padding: 10px;
+  margin-top: 50px;
+`
+
+export const Home = ({ msgAlert, user }) => {
   const [products, setProducts] = useState([])
   useEffect(() => {
     const fetchData = async () => {
@@ -30,28 +49,25 @@ export const Home = (msgAlert) => {
     fetchData()
   }, [])
   const productsList = products.map(product => (
-    <li key={product._id}>
+    <ProductCard key={product._id}>
       <Product
         name = {product.name}
         description = {product.description}
         category = {product.category}
         price = {product.price}
-        id = {product.id}
-
+        id = {product._id}
+        user={user}
       />
-      <Link to={`/products/${product._id}`}>{product.name}</Link>
-    </li>
+    </ProductCard>
   ))
   return (
-    <div className='row'>
-      <div className='col-sm-10 col-md-8 mx-auto mt-5'>
-        <h3>Products</h3>
-        <ul>{productsList}</ul>
-      </div>
-    </div>
+    <>
+      <H1>Products</H1>
+      <ProductsContainer>
+        {productsList}
+      </ProductsContainer>
+    </>
   )
 }
-
-console.log(Product)
 
 export default Home

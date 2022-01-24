@@ -62,7 +62,10 @@ class App extends Component {
         ))}
 	      <main className='container'>
           <Route path='/Home'render={() => (
-            <Home />
+            <Home
+              user={user}
+              msgAlert={this.msgAlert}
+            />
           )}
           />
 	        <Route
