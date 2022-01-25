@@ -11,7 +11,7 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
-import { Cart } from './components/Cart/Cart'
+import { Cart } from './components/cart/Cart'
 import ProfileView from './components/Profile/ProfileView'
 
 // Component Routes
