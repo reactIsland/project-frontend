@@ -25,14 +25,14 @@ const ProductsContainer = styled.div`
 const ProductCard = styled.div`
   margin: 10px;
   background-color: white;
-  height: 200px;
-  width: 200px;
+  height: auto;
+  width: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
+  padding: 15px;
 `
 
 const H1 = styled.h1`
@@ -61,6 +61,7 @@ export const Home = ({ msgAlert, user }) => {
   const productsList = products.map(product => (
     <ProductCard key={product._id}>
       <Product
+        photo = {product.photo}
         name = {product.name}
         description = {product.description}
         category = {product.category}

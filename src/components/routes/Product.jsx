@@ -8,15 +8,24 @@ const ProductCard = styled.div`
   display: flex;
   flex-direction: column; 
   justify-content: space-between;
+  height: auto;
+  width: auto;
 `
 
 const ProductButton = styled.button`
   outline: none;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   padding: 10px;
-  background-color: white;
+  background-color: red;
   border-radius: 10px;
   border: none;
+`
+
+const ProductImage = styled.img`
+  width: 150px;
+  height: 150px;
+  background-repeat: no-repeat;
+  background-size: contain;
 `
 
 // const ProductLink = styled.link`
@@ -28,7 +37,7 @@ const ProductButton = styled.button`
 //   border: none;
 // `
 
-const Product = ({ name, description, category, price, id, user, msgAlert }) => {
+const Product = ({ name, description, category, price, id, photo, user, msgAlert }) => {
   const addToCart = (id) => {
     console.log(id)
     const { token } = user
@@ -68,6 +77,7 @@ const Product = ({ name, description, category, price, id, user, msgAlert }) => 
       {/* <h6>Description: {description}</h6>
       <h6p>Category: {category}</h6p> */}
       <div>
+        <ProductImage className="photo" src={photo} />
         <h6 style={{ 'text-align': 'center' }}>Price: ${price}</h6>
         {user
           ? <ProductButton onClick={() => { addToCart(id) }}>Add to cart</ProductButton>
