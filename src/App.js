@@ -17,7 +17,7 @@ import ProfileView from './components/Profile/ProfileView'
 // Component Routes
 import Home from './components/routes/Home'
 import ProductDetails from './components/ProductDetails/ProductDetails'
-import Success from './components/Cart/Success.jsx'
+import Success from './components/cart/Success.jsx'
 
 class App extends Component {
   constructor (props) {
