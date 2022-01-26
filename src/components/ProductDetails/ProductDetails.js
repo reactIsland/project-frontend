@@ -14,7 +14,6 @@ const CartButton = styled.button`
 
 const Container = styled.div`
   display: flex;
-  
   align-items: center;
   width: 80%;
   margin: 0 auto;
