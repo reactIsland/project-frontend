@@ -16,6 +16,7 @@ import ProfileView from './components/Profile/ProfileView'
 
 // Component Routes
 import Home from './components/routes/Home'
+import ProductDetails from './components/ProductDetails/ProductDetails'
 
 class App extends Component {
   constructor (props) {
@@ -94,6 +95,13 @@ class App extends Component {
           />
           <AuthenticatedRoute
             user={user}
+            path='/product/:id'
+            render={() => (
+              <ProductDetails msgAlert={this.msgAlert} user={user} />
+            )}
+          />
+          <AuthenticatedRoute
+            user={user}
             path='/change-password'
             render={() => (
               <ChangePassword msgAlert={this.msgAlert} user={user} />
@@ -111,7 +119,7 @@ class App extends Component {
             path='/cart'
             render={() => (
               <Cart
-                // msgAlert={this.msgAlert}
+                msgAlert={this.msgAlert}
                 user={user}
               />
             )}

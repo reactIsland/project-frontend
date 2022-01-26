@@ -13,7 +13,7 @@ const ViewContainer = styled.div`
   flex-direction: column;
 `
 
-const ProfileView = () => {
+const ProfileView = ({ user }) => {
   const [component, setComponent] = useState('')
 
   console.log(component, setComponent)
@@ -34,7 +34,7 @@ const ProfileView = () => {
   return (
     <ViewContainer>
       <UserInfo />
-      <PastOrders />
+      <PastOrders user={user} />
       <Link to='/change-password' style={linkStyle}>Manage Password</Link>
     </ViewContainer>
   )

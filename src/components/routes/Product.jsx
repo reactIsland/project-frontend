@@ -7,18 +7,23 @@ import styled from 'styled-components'
 const ProductCard = styled.div`
   display: flex;
   flex-direction: column; 
-  justify-content: space-between;
+  justify-content: space-evenly;
   height: auto;
   width: auto;
 `
 
 const ProductButton = styled.button`
-  outline: none;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  // outline: none;
+  // box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  // padding: 10px;
+  // border-radius: 10px;
+  // border: none;
+  // background-color: white;
   padding: 10px;
-  background-color: red;
-  border-radius: 10px;
+  background-color: black;
+  color: white;
   border: none;
+  outline: none;
 `
 
 const ProductImage = styled.img`
@@ -26,6 +31,8 @@ const ProductImage = styled.img`
   height: 150px;
   background-repeat: no-repeat;
   background-size: contain;
+  margin-top: 10px;
+  margin-bottom: 10px;
 `
 
 // const ProductLink = styled.link`
@@ -63,26 +70,33 @@ const Product = ({ name, description, category, price, id, photo, user, msgAlert
   }
 
   const linkStyle = {
-    'text-decoration': 'none',
-    color: 'black',
+    // textDecoration: 'none',
+    // color: 'black',
+    // padding: '10px',
+    // borderRadius: '10px',
+    // boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
+    // border: 'none',
+    // margin: '0 auto'
     padding: '10px',
-    'border-radius': '10px',
-    'box-shadow': 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
-    border: 'none'
+    backgroundColor: 'black',
+    color: 'white',
+    border: 'none',
+    outline: 'none',
+    textDecoration: 'none',
+    textAlign: 'center'
   }
 
   return (
     <ProductCard>
-      <Link style={{ color: 'black', 'text-decoration': 'none', 'text-align': 'center', 'font-size': '23px' }} to={`/products/${id}`}>{name}</Link>
-      {/* <h6>Description: {description}</h6>
-      <h6p>Category: {category}</h6p> */}
-      <div>
-        <ProductImage className="photo" src={photo} />
-        <h6 style={{ 'text-align': 'center' }}>Price: ${price}</h6>
-        {user
-          ? <ProductButton onClick={() => { addToCart(id) }}>Add to cart</ProductButton>
-          : <Link style={linkStyle} to='/sign-in'>Add to cart</Link>}
-      </div>
+      {user
+        ? <Link style={{ color: 'black', textDecoration: 'none', textAlign: 'center', fontSize: '23px' }} to={`/product/${id}`}>{name}</Link>
+        : <Link style={{ color: 'black', textDecoration: 'none', textAlign: 'center', fontSize: '23px' }} to={'/sign-in'}>{name}</Link>
+      }
+      <ProductImage className="photo" src={photo} />
+      <h6 style={{ textAlign: 'center' }}>${price}</h6>
+      {user
+        ? <ProductButton onClick={() => { addToCart(id) }}>Add to cart</ProductButton>
+        : <Link style={linkStyle} to='/sign-in'>Add to cart</Link>}
     </ProductCard>
   )
 }

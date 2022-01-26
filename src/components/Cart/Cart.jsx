@@ -138,6 +138,24 @@ export const Cart = ({ user }) => {
     })
   }
 
+  const checkoutWithStripe = () => {
+    axios.request({
+      method: 'POST',
+      url: `${apiUrl}/create-checkout-session`,
+      headers: {
+        Authorization: `Bearer ${user.token}`
+      }
+    })
+      .then(response => {
+        console.log(response.data.session.id)
+        return response
+      })
+      .then(response => {
+        const url = response.data.session.url
+        window.location = url
+      })
+  }
+
   const cartJsx = cart.map(product => (
     <Div key={product._id}>
       <CartItem
@@ -150,11 +168,11 @@ export const Cart = ({ user }) => {
 
   const linkStyle = {
     padding: '10px',
-    'background-color': 'black',
+    backgroundColor: 'black',
     color: 'white',
     border: 'none',
     outline: 'none',
-    'text-decoration': 'none'
+    textDecoration: 'none'
   }
 
   return (
@@ -178,7 +196,7 @@ export const Cart = ({ user }) => {
         </SubtotalSection>
         <CheckoutSection>
           <Link style={linkStyle} to='/Home'>Continue Shopping</Link>
-          <CartButton>Checkout</CartButton>
+          <CartButton onClick={() => checkoutWithStripe()}>Checkout</CartButton>
         </CheckoutSection>
       </Container>
     </ViewContainer>
