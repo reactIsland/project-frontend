@@ -14,7 +14,8 @@ const CartButton = styled.button`
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  
+  align-items: center;
   width: 80%;
   margin: 0 auto;
 `
@@ -22,9 +23,12 @@ const Container = styled.div`
 const DetailsContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
-  padding: 75px;
-  width: auto;
+  padding: 20px;
+  width: 50vw;
   height: auto;
+  margin-bottom: 20px;
+  margin-left: 175px;
+  margin-top: 100px;
 `
 const DetailsCard = styled.div`
   display: flex;
@@ -41,6 +45,14 @@ const H6 = styled.h6`
 const H1 = styled.div`
   padding: 10px;
   font-size: 45px;
+`
+const DetailsImage = styled.img`
+  width: 350px;
+  height: 350px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-top: 10px;
+  margin-bottom: 10px;
 `
 
 const ProductDetails = ({ user, msgAlert }) => {
@@ -106,7 +118,7 @@ const ProductDetails = ({ user, msgAlert }) => {
       <Link style={linkStyle} to='/Home'>Back</Link>
       <DetailsContainer>
         <div>
-          <h1>Image</h1>
+          <DetailsImage className="detail-photo" src={product.photo} />
         </div>
         <DetailsCard>
           <H1>{product.name}</H1>
