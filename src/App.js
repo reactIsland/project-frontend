@@ -65,7 +65,11 @@ class App extends Component {
         ))}
         <main>
           <Route
-            path='/Home'
+            exact path='/'
+            render={() => <Home user={user} msgAlert={this.msgAlert} />}
+          />
+          <Route
+            path='/home'
             render={() => <Home user={user} msgAlert={this.msgAlert} />}
           />
           <Route
