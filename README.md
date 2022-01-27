@@ -6,12 +6,18 @@ As a team we decided to move forward with this theme as we all had an appreciati
 
 ## Important Links
 
-- [Deployed Client]()
-- [Deployed API]()
+- [Deployed Client](https://reactisland.github.io/project-frontend/)
+- [Deployed API](https://immense-tundra-62185.herokuapp.com/)
+
+## Backend Repository
+
+- [Backend](https://github.com/reactIsland/Unit3-Project-Backend)
 
 ## Planning Story
 
 We initially planned to make this app into an E-commerce where Produce owners and shoppers can both add and purchase amongst each other in a simplified-fashion as a community while logged into their accounts.
+
+The team would collaborate amongst each other to work through any differences in coding or merge conflicts positively through the Scrum framework.
 
 ### User Stories
 
@@ -42,8 +48,7 @@ We initially planned to make this app into an E-commerce where Produce owners an
 
 - Would like to create a search option on to locate resources through keywords or IDs
 - Would like to continue to work on the Client end to work on the styling of the app
-
-## Images:
-
+- Would like to improve the checkout session experience for the success and cancel paths
+  
 ### Wireframes:
-![GoLocal Wireframe]()
+[GoLocal Wireframe](https://jamboard.google.com/d/1W8dqF5BSRpSpBbwMGUSS87UrwNAcBilFZcBzzWs5oB4/viewer?f=0)
