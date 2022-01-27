@@ -93,8 +93,7 @@ padding-top: 15px
 
 export const Cart = ({ user }) => {
   const [cart, setCart] = useState([])
-  // const [total, setTotal] = useState(0)
-
+  const [total, setTotal] = useState(0)
   useEffect(() => {
     axios.get(apiUrl + '/cart/', {
       headers: {
@@ -104,28 +103,10 @@ export const Cart = ({ user }) => {
       .then(response => {
         const cartArr = response.data.cart
         setCart(cartArr)
+        const itemTotalWithTax = response.data.totalCartCost + 3.75
+        setTotal(itemTotalWithTax)
       })
   }, [])
-
-  useEffect(() => {
-    // const priceArr = []
-    console.log('calc total')
-    // cart.forEach(cartItem => {
-    //   priceArr.push(cartItem.price)
-    // })
-    console.log(cart)
-
-    // if (priceArr.length < 0) {
-    //   console.log('no prices in cart')
-    // } else {
-    //   const sum = priceArr.reduce((a, b) => {
-    //     return a + b
-    //   })
-    //   const finalPrice = sum + 3.75
-    //   console.log(finalPrice)
-    // }
-    // setTotal(finalPrice)
-  }, [cart])
 
   const removeFromCart = (id) => {
     axios.delete(apiUrl + `/cart/${id}`, {
@@ -135,6 +116,8 @@ export const Cart = ({ user }) => {
     }).then(response => {
       const cartArr = response.data.user.cart
       setCart(cartArr)
+      const itemTotalWithTax = response.data.totalCartCost + 3.75
+      setTotal(itemTotalWithTax)
     })
   }
 
@@ -147,7 +130,6 @@ export const Cart = ({ user }) => {
       }
     })
       .then(response => {
-        console.log(response.data.session.id)
         return response
       })
       .then(response => {
@@ -191,7 +173,7 @@ export const Cart = ({ user }) => {
           <SubtotalDiv>
             <h6>FREE! 🥳</h6>
             <h6>$3.75</h6>
-            <h6>$303</h6>
+            <h6>${total}</h6>
           </SubtotalDiv>
         </SubtotalSection>
         <CheckoutSection>

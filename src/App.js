@@ -12,11 +12,12 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import { Cart } from './components/Cart/Cart'
-import ProfileView from './components/Profile/ProfileView'
 
 // Component Routes
 import Home from './components/routes/Home'
 import ProductDetails from './components/ProductDetails/ProductDetails'
+import Success from './components/Cart/Success'
+import PastOrders from './components/Profile/PastOrders'
 
 class App extends Component {
   constructor (props) {
@@ -51,8 +52,8 @@ class App extends Component {
 
     return (
       <Fragment>
-	      <Header user={user} />
-	      {msgAlerts.map((msgAlert) => (
+        <Header user={user} />
+        {msgAlerts.map((msgAlert) => (
           <AutoDismissAlert
             key={msgAlert.id}
             heading={msgAlert.heading}
@@ -62,15 +63,16 @@ class App extends Component {
             deleteAlert={this.deleteAlert}
           />
         ))}
-	      <main>
-          <Route path='/Home'render={() => (
-            <Home
-              user={user}
-              msgAlert={this.msgAlert}
-            />
-          )}
+        <main>
+          <Route
+            exact path='/'
+            render={() => <Home user={user} msgAlert={this.msgAlert} />}
           />
-	        <Route
+          <Route
+            path='/home'
+            render={() => <Home user={user} msgAlert={this.msgAlert} />}
+          />
+          <Route
             path='/sign-up'
             render={() => (
               <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
@@ -81,6 +83,11 @@ class App extends Component {
             render={() => (
               <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
             )}
+          />
+          <Route
+            user={user}
+            path='/success'
+            render={() => <Success user={user} />}
           />
           <AuthenticatedRoute
             user={user}
@@ -110,19 +117,12 @@ class App extends Component {
           <AuthenticatedRoute
             user={user}
             path='/profile'
-            render={() => (
-              <ProfileView msgAlert={this.msgAlert} user={user} />
-            )}
+            render={() => <PastOrders msgAlert={this.msgAlert} user={user} />}
           />
           <AuthenticatedRoute
             user={user}
             path='/cart'
-            render={() => (
-              <Cart
-                msgAlert={this.msgAlert}
-                user={user}
-              />
-            )}
+            render={() => <Cart msgAlert={this.msgAlert} user={user} />}
           />
           {/* Component Routes */}
         </main>
