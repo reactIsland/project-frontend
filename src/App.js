@@ -11,13 +11,13 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
-import { Cart } from './components/cart/Cart'
-import ProfileView from './components/Profile/ProfileView'
+import { Cart } from './components/Cart/Cart'
 
 // Component Routes
 import Home from './components/routes/Home'
 import ProductDetails from './components/ProductDetails/ProductDetails'
-import Success from './components/cart/Success.jsx'
+import Success from './components/Cart/Success'
+import PastOrders from './components/Profile/PastOrders'
 
 class App extends Component {
   constructor (props) {
@@ -85,10 +85,9 @@ class App extends Component {
             )}
           />
           <Route
+            user={user}
             path='/success'
-            render={() => (
-              <Success msgAlert={this.msgAlert} setUser={this.setUser} />
-            )}
+            render={() => <Success user={user} />}
           />
           <AuthenticatedRoute
             user={user}
@@ -118,7 +117,7 @@ class App extends Component {
           <AuthenticatedRoute
             user={user}
             path='/profile'
-            render={() => <ProfileView msgAlert={this.msgAlert} user={user} />}
+            render={() => <PastOrders msgAlert={this.msgAlert} user={user} />}
           />
           <AuthenticatedRoute
             user={user}
