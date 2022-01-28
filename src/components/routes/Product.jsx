@@ -13,12 +13,6 @@ const ProductCard = styled.div`
 `
 
 const ProductButton = styled.button`
-  // outline: none;
-  // box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  // padding: 10px;
-  // border-radius: 10px;
-  // border: none;
-  // background-color: white;
   padding: 10px;
   background-color: black;
   color: white;
@@ -35,20 +29,9 @@ const ProductImage = styled.img`
   margin-bottom: 10px;
 `
 
-// const ProductLink = styled.link`
-//   outline: none;
-//   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-//   padding: 10px;
-//   background-color: white;
-//   border-radius: 10px;
-//   border: none;
-// `
-
 const Product = ({ name, description, category, price, id, photo, user, msgAlert }) => {
   const addToCart = (id) => {
-    console.log(id)
     const { token } = user
-    console.log(token)
 
     axios.request({
       method: 'POST',
@@ -57,9 +40,6 @@ const Product = ({ name, description, category, price, id, photo, user, msgAlert
         Authorization: `Bearer ${token}`
       }
     })
-      .then(response => {
-        console.log(response)
-      })
       .then(() =>
         msgAlert({
           heading: '🎊  item added  🎉',
@@ -70,13 +50,6 @@ const Product = ({ name, description, category, price, id, photo, user, msgAlert
   }
 
   const linkStyle = {
-    // textDecoration: 'none',
-    // color: 'black',
-    // padding: '10px',
-    // borderRadius: '10px',
-    // boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
-    // border: 'none',
-    // margin: '0 auto'
     padding: '10px',
     backgroundColor: 'black',
     color: 'white',

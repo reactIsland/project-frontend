@@ -84,13 +84,6 @@ background-color: transparent;
 padding-top: 15px
 `
 
-// const Total = styled.h6`
-//   background-color: black;
-//   color: white;
-//   padding: 10px;
-//   border-radius: 10px;
-// `
-
 export const Cart = ({ user }) => {
   const [cart, setCart] = useState([])
   const [total, setTotal] = useState(0)

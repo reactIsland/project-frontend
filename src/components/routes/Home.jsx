@@ -46,7 +46,6 @@ export const Home = ({ msgAlert, user }) => {
     const fetchData = async () => {
       try {
         const res = await axios.get(apiUrl + '/products')
-        console.log(res)
         setProducts(res.data.products)
       } catch (error) {
         msgAlert({

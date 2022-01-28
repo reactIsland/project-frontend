@@ -56,7 +56,6 @@ const DetailsImage = styled.img`
 
 const ProductDetails = ({ user, msgAlert }) => {
   const [product, setProduct] = useState({})
-  console.log('Kill tony')
   const url = window.location.pathname
   const id = url.split('/')[3]
 
@@ -69,16 +68,13 @@ const ProductDetails = ({ user, msgAlert }) => {
       }
     })
       .then(response => {
-        console.log(response)
         const responseData = response.data.product
         setProduct(responseData)
       })
   }, [])
 
   const addToCart = (id) => {
-    console.log(id)
     const { token } = user
-    console.log(token)
 
     axios.request({
       method: 'POST',
@@ -87,9 +83,6 @@ const ProductDetails = ({ user, msgAlert }) => {
         Authorization: `Bearer ${token}`
       }
     })
-      .then(response => {
-        console.log(response)
-      })
       .then(() =>
         msgAlert({
           heading: '🎊  item added  🎉',
